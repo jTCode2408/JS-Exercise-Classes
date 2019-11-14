@@ -90,13 +90,16 @@ class Car {
   }
   
   drive(distance){
-   distance= this.odometer++ ;
+   if (distance++){
+   return this.odometer ;
  
   }
-
+  }
 fuel(){
+  if (this.tank > this.odometer){
   return `I ran out of fuel at ${this.odometer} miles!`;
-
+  
+}
 }
 }
 
@@ -113,9 +116,9 @@ fuel(){
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  constructor(attributes){ //troubleshooting: adding attributes allowed me to return string after 'name undefined' error. *figure out why!*//
-this.name=attributes.name;
-this.age=attributes.age;
+  constructor(attributes){ 
+this.name=attributes.name,
+this.age=attributes.age,
 this.location=attributes.location
 
   }
@@ -142,10 +145,11 @@ this.location=attributes.location
 */
 class Instructor  extends Lambdasian {
 constructor(attributes){
-  super (attributes),
+  super (attributes);
 this.specialty=attributes.specialty,
 this.favLanguage=attributes.favLanguage,
 this.catchPhrase=attributes.catchPhrase
+
 }
 
 demo(subject){
@@ -155,18 +159,14 @@ demo(subject){
 }
 
 
-grade(subject, student){
-student.name=student.name,
-subject=subject
+grade(student, subject){
 
 return `${student.name} receives a perfect score on ${subject}`;
 
 }
 }
 
-
-
-
+ 
 /*
   TASK 5
     - Write a Student class extending Lambdasian.
@@ -188,19 +188,19 @@ class Student extends Lambdasian {
     this.previousBackground=attributes.previousBackground,
     this.className=attributes.className,
     this.favSubjects=attributes.favSubjects
-
+  
   }
 
 listSubjects(){
   return `Loving ${this.favSubjects} !`;
 }
 
-PRAssignment(subject, student){
-return `${student.name} has submitted a PR for ${subject}`
+PRAssignment(subject){
+return `${this.name} has submitted a PR for ${subject}`
 }
 
-sprintChallenge(subject, student){
-  return `${student.name} has begun sprint challenge on ${subject}`;
+sprintChallenge(subject){
+  return `${this.name} has begun sprint challenge on ${subject}`;
 }
 
 
@@ -231,7 +231,7 @@ class ProjectManager extends Instructor {
     return `${this.name} announces to ${channel}, @channel standy times` 
   }
 
-debugCode(subject){
+debugsCode(student, subject){
   return `${this.name} debugs ${student.name}'s code on ${subject}`;
 }
   
