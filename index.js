@@ -41,6 +41,26 @@ class Airplane {
 */
 
 class Person {
+  constructor(name, age) {
+    this.stomach= [];
+    this.name=name,
+    this.age=age
+  }
+  
+    eat(someFood){
+      if (this.stomach.length < 10){
+        this.stomach.push(someFood);
+      };
+      
+      }
+    
+  poop(stomach){
+  this.stomach = [];
+  
+  }
+  toString(name, age){
+  return `${this.name}, ${this.age}`;
+  }
 
 }
 
@@ -59,7 +79,24 @@ class Person {
 */
 
 class Car {
+  constructor(model, milesPerGallon) {
+    this.milesPerGallon=milesPerGallon,
+    this.model=model,
+    this.tank=0,
+    this.odometer=0
+  }
+  fill(gallons){
+  this.tank += gallons;
+  }
+  
+  drive(){
+ 
+  }
 
+fuel(){
+  return `I ran out of fuel at ${this.odometer} miles!`;
+
+}
 }
 
 /*
@@ -75,6 +112,16 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
+  constructor(attributes){ //troubleshooting: adding attributes allowed me to return string after 'name undefined' error. *figure out why!*//
+this.name=attributes.name;
+this.age=attributes.age;
+this.location=attributes.location
+
+  }
+  speak(){
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
+
 
 }
 
