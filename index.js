@@ -90,18 +90,21 @@ class Car {
   }
   
   drive(distance){
-   if (distance++){
-   return this.odometer ;
- 
+    if ((this.tank*this.milesPerGallon) < (distance)){
+      this.odometer = (this.tank*this.milesPerGallon)
+      let noGas = this.tank
+      this.tank = 0
+      return `I ran out of fuel at ${noGas*this.milesPerGallon} miles!`
+
+    } else {
+
+      this.odometer = distance
+      this.tank = this.tank - (distance/this.milesPerGallon)
+    }
   }
   }
-fuel(){
-  if (this.tank > this.odometer){
-  return `I ran out of fuel at ${this.odometer} miles!`;
-  
-}
-}
-}
+
+
 
 /*
   TASK 3
